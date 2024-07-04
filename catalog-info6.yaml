@@ -1,3 +1,20 @@
+ apiVersion: scaffolder.backstage.io/v1beta3
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-template
+kind: Template
+metadata:
+  name: create-frontend-plugin
+  title: Clean Frontend Plugin Template
+  description: Template for creating a fontend plugin
+  tags:
+    - frontend-plugin
+    - backstage-plugin
+spec:
+  owner: janus-authors
+  system: janus-idp
+  type: plugin
+ 
+# These parameters are used to generate the input form in the frontend, and are
+# used to gather input data for the execution of the template.
  parameters:
   - title: Provide some information
     required:
