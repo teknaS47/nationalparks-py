@@ -49,11 +49,34 @@ spec:
       is_existing_repo:
         title: This is an Existing Repository
         type: boolean
-        description: Select to use lombok
+        description: Select if repository already exist
         default: false
-        ui:autofocus: true
-        ui:options:
-          rows: 5
+        # ui:autofocus: true
+        # ui:options:
+        #   rows: 
+    dependencies:
+      is_existing_repo:
+        allOf:
+          - if:
+              properties:
+                is_existing_repo:
+                  const: false
+            then:
+              properties:
+                branchName:
+                  title: Branch Name
+                  type: string
+                  description: The name for the branch
+                  default: ''
+                targetBranchName:
+                  title: Target Branch Name	
+                  type: string
+                  description: The target branch name of the merge request
+                  default: ''
+              # You can use additional fields of parameters within conditional parameters such as required.
+              required:
+                - branchName
+                - targetBranchName
         
 
   # These steps are executed in the scaffolder backend, using data that we gathered
@@ -86,16 +109,19 @@ spec:
   - id: create-pr
     name: Create pull request with the frontend plugin sample
     if: ${{ parameters.is_existing_repo  === true }}
-    action: github:repo:push
+    action: publish:github:pull-request
     input:
-      # allowedHosts: ["github.com"]
-      requireCodeOwnerReviews: true
-      sourcePath: 'plugins'
-      # description: This is ${{ parameters.plugin_id }} frontend plugin.
       repoUrl: ${{ parameters.repoUrl }}
+      branchName: main
+      targetBranchName: scaffolder-fp
+      title: Create front-end plugin ${{ parameters.plugin_id }}
+      description: This pull request creates the skeleton for your front-end plugin
 
 # Outputs are displayed to the user after a successful execution of the template.
   output:
     links:
       - title: View Plugin
         url: ${{ steps.publish.output.remoteUrl }}
+      - title: View Pull Request
+        url: ${{ steps.create-pr.output.remoteUrl }}
+  
