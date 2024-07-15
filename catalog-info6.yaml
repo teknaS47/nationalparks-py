@@ -112,8 +112,8 @@ spec:
       action: publish:github:pull-request
       input:
         repoUrl: ${{ parameters.repoUrl }}
-        branchName: main
-        targetBranchName: scaffolder-fp
+        branchName: ${{ parameters.branchName }}
+        targetBranchName: ${{ parameters.targetBranchName }}
         title: Create front-end plugin ${{ parameters.plugin_id }}
         description: This pull request creates the skeleton for your front-end plugin
 
