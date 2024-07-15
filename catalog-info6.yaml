@@ -93,7 +93,6 @@ spec:
           # description: ${{ parameters.description }}
           repoUrl: ${{ parameters.repoUrl | parseRepoUrl }}
           owner: ${{ parameters.owner }}
-          is_existing_repo: ${{ parameters.is_existing_repo }}
           
 
     #This step publishes the contents of the working directory to GitHub if .
