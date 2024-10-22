@@ -40,6 +40,8 @@ metadata:
     github.com/project-slug: divyanshiGupta/nationalparks-py
     backstage.io/kubernetes-id: nationalparks-py
     janus-idp.io/tekton: nationalparks-py
+    backstage.io/managed-by-location: url:http://github.com/backstage/backstage/blob/master/catalog-info.yaml
+    backstage.io/managed-by-origin-location: url:http://github.com/backstage/backstage/blob/master/catalog-info.yaml
     # Annotations for TechDocs
     techdocs.backstage.io/docs: '/docs' # or the URL to your documentation if hosted elsewhere
     backstage.io/kubernetes-namespace: div
