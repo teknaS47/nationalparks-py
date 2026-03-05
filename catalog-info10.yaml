@@ -1,39 +1,11 @@
 apiVersion: backstage.io/v1alpha1
-kind: User
-metadata:
-  name: Eswaraiahsapram
-spec:
-  profile:
-    # Intentional no displayName for testing
-    email: esapram@redhat.com
-    displayName: Eswar S
-  memberOf: [temp-team-a]
----
-apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  links:
-    - url: https://dashboard.example.com
-      title: My Dashboard
-      icon: dashboard
   annotations:
-    'backstage.io/techdocs-ref': dir:.
-    'quay.io/repository-slug': esapram/docker-node-app
-    'backstage.io/kubernetes-id': test-app
-    'janus-idp.io/tekton': test-app
-    'argocd/app-selector': rht-gitops.com/janus-argocd=quarkus-app-bootstrap
-    # 'argocd/app-name': quarkus-app
-    # 'github.com/project-slug': 'Eswaraiahsapram/GHA-matrix-workflow'
-    'jenkins.io/job-full-name': 'calculator-app-pipeline'
-    'dev.azure.com/project-repo': my-project/my-repo
-    'github.com/project-slug': redhat-developer/rhdh
-    'jira.com/project-slug': RHDHBUGS
-    # 'jira/project-key': RHDHBUGS
-    # 'scorecard.io/github.open-prs.thresholds.rules.error': '>=200'
-    # 'scorecard.io/github.open-prs.thresholds.rules.warning': '<200'
-  name: rhdh-apps-test
+    argocd/app-selector: rht-gitops.com/janus-argocd=quarkus-app-bootstrap
+  name: test-application
   description: An example of a Backstage application.
 spec:
   type: service
-  owner: temp-team-a
+  owner: janus-authors
   lifecycle: unknown
