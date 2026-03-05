@@ -3,9 +3,10 @@ kind: Component
 metadata:
   annotations:
     argocd/app-selector: rht-gitops.com/janus-argocd=quarkus-app-bootstrap
+    argocd/name: quarkus-app
   name: test-application
   description: An example of a Backstage application.
 spec:
   type: service
-  owner: janus-authors
+  owner: janus-test
   lifecycle: unknown
